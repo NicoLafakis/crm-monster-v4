@@ -14,6 +14,8 @@ class CRMMonster {
         // Service layer: small, optional integration point.
         this.api = (typeof window !== 'undefined' && window.apiService) ? window.apiService : null;
         this.currentModal = null;
+        // Load any session-stored API token (if present)
+        this.loadSessionToken();
         this.init();
     }
 
@@ -91,8 +93,127 @@ class CRMMonster {
                 this.closeModal();
             }
         });
+
+        // Delegated handlers for Settings page (Validate / Save)
+        document.addEventListener('click', (e) => {
+            const target = e.target;
+            if (!target) return;
+            try {
+                if (target.id === 'validate-token-btn' || (target.closest && target.closest('#validate-token-btn'))) {
+                    e.preventDefault();
+                    this.validateApiToken();
+                }
+                if (target.id === 'save-token-btn' || (target.closest && target.closest('#save-token-btn'))) {
+                    e.preventDefault();
+                    this.saveApiToken();
+                }
+            } catch (err) {
+                console.error('Settings handler error', err);
+            }
+        });
     }
 
+
+
+    // Load token from sessionStorage and apply to ApiService (if present)
+    loadSessionToken() {
+        try {
+            const token = sessionStorage.getItem('crm_monster_api_token');
+            if (token && this.api) {
+                this.api.headers['Authorization'] = `Bearer ${token}`;
+            }
+            // If settings form is present at load, populate input (will be shown when user navigates)
+            if (token) {
+                // Defer DOM update until DOM ready — try immediate set if input exists
+                const el = document.getElementById('api-token-input');
+                if (el) el.value = token;
+            }
+        } catch (err) {
+            // sessionStorage not available or other error — ignore silently
+            console.warn('Could not load session token', err);
+        }
+    }
+
+    // Validate a token by temporarily applying it and calling a lightweight test endpoint
+    async validateApiToken() {
+        const inputEl = document.getElementById('api-token-input');
+        const feedbackEl = document.getElementById('settings-feedback');
+        if (!inputEl || !feedbackEl) return;
+
+        const token = inputEl.value.trim();
+        if (!token) {
+            feedbackEl.innerHTML = `<div class="message error"><i class="fas fa-exclamation-circle"></i> Please enter an API token to validate.</div>`;
+            return;
+        }
+
+        if (!this.api || !this.api.request) {
+            feedbackEl.innerHTML = `<div class="message warning"><i class="fas fa-info-circle"></i> No API service available in this environment. Token will be saved locally but cannot be validated here.</div>`;
+            return;
+        }
+
+        feedbackEl.innerHTML = `<div class="message info"><i class="fas fa-spinner fa-pulse"></i> Validating token...</div>`;
+
+        // Temporarily set header
+        const prev = this.api.headers['Authorization'];
+        this.api.headers['Authorization'] = `Bearer ${token}`;
+
+        try {
+            // Use the existing helper (contacts endpoint) as a lightweight validation
+            await this.api.testEndpoint('/crm/v3/objects/contacts');
+            feedbackEl.innerHTML = `<div class="message success"><i class="fas fa-check-circle"></i> Token validated successfully — API reachable.</div>`;
+        } catch (err) {
+            const bodyText = err && err.body ? JSON.stringify(err.body) : '';
+            feedbackEl.innerHTML = `<div class="message error"><i class="fas fa-times-circle"></i> Validation failed: ${err.message || 'Unknown error'} ${bodyText ? `<pre style="margin-top:8px;white-space:pre-wrap;">${bodyText}</pre>` : ''}</div>`;
+        } finally {
+            // Restore previous header (do not persist on validate)
+            if (typeof prev === 'undefined') {
+                delete this.api.headers['Authorization'];
+            } else {
+                this.api.headers['Authorization'] = prev;
+            }
+        }
+    }
+
+    // Save token for the session and apply to ApiService in-memory headers
+    saveApiToken() {
+        const inputEl = document.getElementById('api-token-input');
+        const feedbackEl = document.getElementById('settings-feedback');
+        if (!inputEl || !feedbackEl) return;
+
+        const token = inputEl.value.trim();
+        if (!token) {
+            feedbackEl.innerHTML = `<div class="message error"><i class="fas fa-exclamation-circle"></i> Please enter an API token to save.</div>`;
+            return;
+        }
+
+        try {
+            sessionStorage.setItem('crm_monster_api_token', token);
+        } catch (err) {
+            console.warn('Could not save token to sessionStorage', err);
+        }
+
+        if (this.api) {
+            this.api.headers['Authorization'] = `Bearer ${token}`;
+        }
+
+        feedbackEl.innerHTML = `<div class="message success"><i class="fas fa-check-circle"></i> Token saved for this browser session.</div>`;
+    }
+
+    // Clear token from session and in-memory ApiService headers
+    clearApiToken() {
+        const inputEl = document.getElementById('api-token-input');
+        const feedbackEl = document.getElementById('settings-feedback');
+        try {
+            sessionStorage.removeItem('crm_monster_api_token');
+        } catch (err) {
+            console.warn('Could not remove token from sessionStorage', err);
+        }
+        if (this.api && this.api.headers) {
+            delete this.api.headers['Authorization'];
+        }
+        if (inputEl) inputEl.value = '';
+        if (feedbackEl) feedbackEl.innerHTML = `<div class="message info"><i class="fas fa-info-circle"></i> Token cleared from session.</div>`;
+    }
     navigateToSection(sectionId) {
         console.log('Navigating to section:', sectionId);
         

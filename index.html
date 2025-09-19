@@ -61,6 +61,10 @@
                     <i class="fas fa-cog"></i>
                     <span>Admin Utilities</span>
                 </div>
+                <div class="nav-item" data-section="settings">
+                    <i class="fas fa-sliders-h"></i>
+                    <span>Settings</span>
+                </div>
                 <div class="nav-item" data-section="troubleshooting">
                     <i class="fas fa-wrench"></i>
                     <span>Troubleshooting</span>
@@ -169,6 +173,32 @@
                         <div class="status-item">
                             <span class="status-label">Automations</span>
                             <span class="status-indicator neutral">Not configured</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Settings Section -->
+        <section id="settings" class="content-section">
+            <div class="section-header">
+                <h2><i class="fas fa-sliders-h"></i> Settings</h2>
+                <p>Configure API credentials and session options</p>
+            </div>
+            <div class="tools-grid">
+                <div class="tool-category full-width">
+                    <h3><i class="fas fa-key"></i> API Token (session)</h3>
+                    <div class="tool-form tool-form--settings">
+                        <div class="form-group">
+                            <label class="form-label">API Token</label>
+                            <input id="api-token-input" type="password" class="form-control" placeholder="Enter API token (kept in browser session)">
+                        </div>
+                        <div class="form-group form-actions">
+                            <button id="validate-token-btn" class="btn--outline">Validate</button>
+                            <button id="save-token-btn" class="btn--primary">Save for session</button>
+                            <button id="clear-token-btn" class="btn--warn">Clear</button>
+                        </div>
+                        <div id="settings-feedback" class="settings-feedback">
+                            <!-- Validation feedback appears here -->
                         </div>
                     </div>
                 </div>
