@@ -4,10 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-  "start": "node scripts/dev-server.js",
-  "web:install": "node -e \"console.log('Run: cd web && npm install')\"",
-  "web:dev": "node -e \"console.log('Run: cd web && npm run dev')\"",
-  "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",

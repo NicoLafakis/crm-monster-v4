@@ -2,12 +2,8 @@
 // Attach to `window.apiService` so the existing UI (which expects globals) can access it.
 class ApiService {
   constructor(options = {}) {
-    // Default to HubSpot's public API host. If caller explicitly provides
-    // a `baseUrl` (including an empty string) we honor it. Only use the
-    // HubSpot default when `baseUrl` is not provided at all.
-    this.baseUrl = Object.prototype.hasOwnProperty.call(options, 'baseUrl')
-      ? options.baseUrl
-      : 'https://api.hubapi.com';
+    // Default to HubSpot's public API host. Leave blank to use relative paths / proxy.
+    this.baseUrl = (typeof options.baseUrl === 'string' && options.baseUrl.length > 0) ? options.baseUrl : 'https://api.hubapi.com';
     this.headers = options.headers || {};
   }
 

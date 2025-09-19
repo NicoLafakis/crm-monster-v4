@@ -708,27 +708,6 @@ select.form-control {
   display: none;
 }
 
-/* Settings form tweaks */
-.tool-form--settings {
-  max-width: 720px;
-}
-
-.form-actions {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-}
-
-.settings-feedback {
-  margin-top: 12px;
-}
-
-.btn--warn {
-  background: transparent;
-  border: 1px solid var(--color-border);
-  color: var(--color-text);
-}
-
 /* Accessibility */
 .sr-only {
   position: absolute;
