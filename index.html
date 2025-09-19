@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HubSpot CRM Monster - Ultimate RevOps Automation Tool</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-section">
+                <i class="fas fa-dragon"></i>
+                <h1>CRM Monster</h1>
+                <span class="tagline">Ultimate HubSpot Automation</span>
+            </div>
+            <div class="header-actions">
+                <button class="notification-btn">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </button>
+                <div class="user-profile">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiMwQjk0NDQiLz4KPHRleHQgeD0iMjAiIHk9IjI1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IndoaXRlIj5VPC90ZXh0Pgo8L3N2Zz4K" alt="User">
+                    <span>Admin User</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <nav class="sidebar">
+        <div class="sidebar-content">
+            <div class="nav-section">
+                <div class="nav-item active" data-section="dashboard">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </div>
+                <div class="nav-item" data-section="bulk-operations">
+                    <i class="fas fa-tasks"></i>
+                    <span>Bulk Operations</span>
+                </div>
+                <div class="nav-item" data-section="data-management">
+                    <i class="fas fa-database"></i>
+                    <span>Data Management</span>
+                </div>
+                <div class="nav-item" data-section="automation">
+                    <i class="fas fa-robot"></i>
+                    <span>Automation Builder</span>
+                </div>
+                <div class="nav-item" data-section="reporting">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Reporting</span>
+                </div>
+                <div class="nav-item" data-section="integrations">
+                    <i class="fas fa-plug"></i>
+                    <span>Integrations</span>
+                </div>
+                <div class="nav-item" data-section="admin">
+                    <i class="fas fa-cog"></i>
+                    <span>Admin Utilities</span>
+                </div>
+                <div class="nav-item" data-section="troubleshooting">
+                    <i class="fas fa-wrench"></i>
+                    <span>Troubleshooting</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="content-section active">
+            <div class="section-header">
+                <h2><i class="fas fa-tachometer-alt"></i> Dashboard</h2>
+                <p>Welcome to your HubSpot CRM Monster control center</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon success">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>12,847</h3>
+                        <p>Total Contacts</p>
+                        <span class="stat-change positive">+5.2% this month</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon warning">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>1,256</h3>
+                        <p>Active Deals</p>
+                        <span class="stat-change positive">+12.3% this week</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon error">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>47</h3>
+                        <p>Duplicates Found</p>
+                        <span class="stat-change negative">Needs attention</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon info">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>23</h3>
+                        <p>Active Workflows</p>
+                        <span class="stat-change neutral">Running smoothly</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="quick-actions">
+                    <h3>Quick Actions</h3>
+                    <div class="action-buttons">
+                        <button class="action-btn primary" data-action="bulk-import">
+                            <i class="fas fa-upload"></i>
+                            Bulk Import Contacts
+                        </button>
+                        <button class="action-btn success" data-action="merge-duplicates">
+                            <i class="fas fa-compress-alt"></i>
+                            Merge Duplicates
+                        </button>
+                        <button class="action-btn warning" data-action="create-workflow">
+                            <i class="fas fa-plus"></i>
+                            Create Workflow
+                        </button>
+                        <button class="action-btn info" data-action="generate-report">
+                            <i class="fas fa-chart-line"></i>
+                            Generate Report
+                        </button>
+                    </div>
+                </div>
+
+                <div class="recent-activities">
+                    <h3>Recent Activities</h3>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-icon success">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="activity-content">
+                                <p><strong>Bulk import completed</strong></p>
+                                <span>2,847 contacts imported successfully</span>
+                                <time>2 hours ago</time>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon warning">
+                                <i class="fas fa-exclamation"></i>
+                            </div>
+                            <div class="activity-content">
+                                <p><strong>Duplicates detected</strong></p>
+                                <span>47 potential duplicates need review</span>
+                                <time>4 hours ago</time>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon info">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="activity-content">
+                                <p><strong>Workflow activated</strong></p>
+                                <span>Lead nurturing sequence started</span>
+                                <time>6 hours ago</time>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="system-status">
+                    <h3>System Status</h3>
+                    <div class="status-items">
+                        <div class="status-item">
+                            <span class="status-label">HubSpot API</span>
+                            <span class="status-indicator online">Online</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="status-label">Data Sync</span>
+                            <span class="status-indicator online">Active</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="status-label">Webhooks</span>
+                            <span class="status-indicator warning">3 Pending</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="status-label">Automations</span>
+                            <span class="status-indicator online">Running</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bulk Operations Section -->
+        <section id="bulk-operations" class="content-section">
+            <div class="section-header">
+                <h2><i class="fas fa-tasks"></i> Bulk Operations Center</h2>
+                <p>Execute mass operations on your HubSpot data with one-click simplicity</p>
+            </div>
+
+            <div class="tools-grid">
+                <div class="tool-category">
+                    <h3><i class="fas fa-users"></i> Contact Operations</h3>
+                    <div class="tool-buttons">
+                        <button class="tool-btn" data-tool="bulk-contact-import">
+                            <i class="fas fa-upload"></i>
+                            Bulk Import Contacts
+                        </button>
+                        <button class="tool-btn" data-tool="bulk-contact-update">
+                            <i class="fas fa-edit"></i>
+                            Mass Update Properties
+                        </button>
+                        <button class="tool-btn" data-tool="contact-merge">
+                            <i class="fas fa-compress-alt"></i>
+                            Merge Duplicates
+                        </button>
+                        <button class="tool-btn" data-tool="contact-export">
+                            <i class="fas fa-download"></i>
+                            Export Contacts
+                        </button>
+                    </div>
+                </div>
+
+                <div class="tool-category">
+                    <h3><i class="fas fa-handshake"></i> Deal Operations</h3>
+                    <div class="tool-buttons">
+                        <button class="tool-btn" data-tool="bulk-deal-create">
+                            <i class="fas fa-plus"></i>
+                            Bulk Create Deals
+                        </button>
+                        <button class="tool-btn" data-tool="deal-stage-update">
+                            <i class="fas fa-arrow-right"></i>
+                            Update Deal Stages
+                        </button>
+                        <button class="tool-btn" data-tool="deal-property-update">
+                            <i class="fas fa-edit"></i>
+                            Update Deal Properties
+                        </button>
+                        <button class="tool-btn" data-tool="deal-analysis">
+                            <i class="fas fa-analytics"></i>
+                            Deal Analysis
+                        </button>
+                    </div>
+                </div>
+
+                <div class="tool-category">
+                    <h3><i class="fas fa-building"></i> Company Operations</h3>
+                    <div class="tool-buttons">
+                        <button class="tool-btn" data-tool="company-merge">
+                            <i class="fas fa-compress-alt"></i>
+                            Merge Companies
+                        </button>
+                        <button class="tool-btn" data-tool="company-update">
+                            <i class="fas fa-edit"></i>
+                            Update Properties
+                        </button>
+                        <button class="tool-btn" data-tool="company-enrichment">
+                            <i class="fas fa-magic"></i>
+                            Data Enrichment
+                        </button>
+                        <button class="tool-btn" data-tool="company-segmentation">
+                            <i class="fas fa-layer-group"></i>
+                            Segmentation
+                        </button>
+                    </div>
+                </div>
+
+                <div class="tool-category">
+                    <h3><i class="fas fa-cogs"></i> Property Management</h3>
+                    <div class="tool-buttons">
+                        <button class="tool-btn" data-tool="bulk-property-create">
+                            <i class="fas fa-plus"></i>
+                            Bulk Create Properties
+                        </button>
+                        <button class="tool-btn" data-tool="property-mapping">
+                            <i class="fas fa-map"></i>
+                            Property Mapping
+                        </button>
+                        <button class="tool-btn" data-tool="property-cleanup">
+                            <i class="fas fa-broom"></i>
+                            Property Cleanup
+                        </button>
+                        <button class="tool-btn" data-tool="property-validation">
+                            <i class="fas fa-check-double"></i>
+                            Validate Properties
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Data Management Section -->
+        <section id="data-management" class="content-section">
+            <div class="section-header">
+                <h2><i class="fas fa-database"></i> Data Management Tools</h2>
+                <p>Ensure data quality and integrity across your HubSpot instance</p>
+            </div>
+
+            <div class="tools-grid">
+                <div class="tool-category">
+                    <h3><i class="fas fa-search"></i> Duplicate Management</h3>
+                    <div class="tool-buttons">
+                        <button class="tool-btn" data-tool="duplicate-scanner">
+                            <i class="fas fa-scan"></i>
+                            Scan for Duplicates
+                        </button>
+                        <button class="tool-btn" data-tool="smart-merge">
+                            <i class="fas fa-brain"></i>
+                            Smart Merge Tool
+                        </button>
+                        <button class="tool-btn" data-tool="merge-preview">
+                            <i class="fas fa-eye"></i>
+                            Preview Merges
+                        </button>
+                        <button class="tool-btn" data-tool="duplicate-prevention">
+                            <i class="fas fa-shield-alt"></i>
+                            Prevention Rules
+                        </button>
+                    </div>
+                </div>
+
+                <div class="tool-category">
+                    <h3><i class="fas fa-quality"></i> Data Quality</h3>
+                    <div class="tool-buttons">
+                        <button class="tool-btn" data-tool="quality-audit">
+                            <i class="fas fa-clipboard-check"></i>
+                            Quality Audit
+                        </button>
+                        <button class="tool-btn" data-tool="data-standardization">
+                            <i class="fas fa-ruler"></i>
+                            Data Standardization
+                        </button>
+                        <button class="tool-btn" data-tool="missing-data-finder">
+                            <i class="fas fa-search-minus"></i>
+                            Find Missing Data
+                        </button>
+                        <button class="tool-btn" data-tool="validation-rules">
+                            <i class="fas fa-check-square"></i>
+                            Validation Rules
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Automation Section -->
+        <section id="automation" class="content-section">
+            <div class="section-header">
+                <h2><i class="fas fa-robot"></i> Automation Builder</h2>
+                <p>Create powerful automations and workflows with drag-and-drop simplicity</p>
+            </div>
+
+            <div class="tools-grid">
+                <div class="tool-category full-width">
+                    <h3><i class="fas fa-magic"></i> Workflow Templates</h3>
+                    <div class="template-grid">
+                        <div class="template-card">
+                            <h4>Lead Nurturing Sequence</h4>
+                            <p>Automated email sequences for new leads</p>
+                            <button class="btn--primary btn--sm">Use Template</button>
+                        </div>
+                        <div class="template-card">
+                            <h4>Deal Stage Automation</h4>
+                            <p>Auto-move deals based on activity</p>
+                            <button class="btn--primary btn--sm">Use Template</button>
+                        </div>
+                        <div class="template-card">
+                            <h4>Customer Onboarding</h4>
+                            <p>Complete onboarding workflow</p>
+                            <button class="btn--primary btn--sm">Use Template</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool-category">
+                    <h3><i class="fas fa-tools"></i> Automation Tools</h3>
+                    <div class="tool-buttons">
+                        <button class="tool-btn" data-tool="workflow-builder">
+                            <i class="fas fa-project-diagram"></i>
+                            Visual Workflow Builder
+                        </button>
+                        <button class="tool-btn" data-tool="webhook-manager">
+                            <i class="fas fa-link"></i>
+                            Webhook Manager
+                        </button>
+                        <button class="tool-btn" data-tool="api-tester">
+                            <i class="fas fa-vial"></i>
+                            API Endpoint Tester
+                        </button>
+                        <button class="tool-btn" data-tool="automation-monitor">
+                            <i class="fas fa-monitor-heart-rate"></i>
+                            Monitor Automations
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reporting Section -->
+        <section id="reporting" class="content-section">
+            <div class="section-header">
+                <h2><i class="fas fa-chart-bar"></i> Reporting & Analytics</h2>
+                <p>Create powerful reports and dashboards to track your success</p>
+            </div>
+
+            <div class="tools-grid">
+                <div class="tool-category">
+                    <h3><i class="fas fa-chart-line"></i> Report Builder</h3>
+                    <div class="tool-buttons">
+                        <button class="tool-btn" data-tool="custom-report">
+                            <i class="fas fa-chart-pie"></i>
+                            Custom Report Builder
+                        </button>
+                        <button class="tool-btn" data-tool="dashboard-creator">
+                            <i class="fas fa-tachometer-alt"></i>
+                            Dashboard Creator
+                        </button>
+                        <button class="tool-btn" data-tool="roi-calculator">
+                            <i class="fas fa-calculator"></i>
+                            ROI Calculator
+                        </button>
+                        <button class="tool-btn" data-tool="performance-metrics">
+                            <i class="fas fa-bullseye"></i>
+                            Performance Metrics
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Other sections continue with similar structure... -->
+        <section id="integrations" class="content-section">
+            <div class="section-header">
+                <h2><i class="fas fa-plug"></i> Integration Manager</h2>
+                <p>Manage all your third-party integrations and API connections</p>
+            </div>
+            <div class="tools-grid">
+                <div class="tool-category">
+                    <h3><i class="fas fa-link"></i> Connections</h3>
+                    <div class="tool-buttons">
+                        <button class="tool-btn" data-tool="api-manager">
+                            <i class="fas fa-key"></i>
+                            API Connection Manager
+                        </button>
+                        <button class="tool-btn" data-tool="integration-health">
+                            <i class="fas fa-heartbeat"></i>
+                            Integration Health Check
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="admin" class="content-section">
+            <div class="section-header">
+                <h2><i class="fas fa-cog"></i> Admin Utilities</h2>
+                <p>Powerful administration tools for system management</p>
+            </div>
+            <div class="tools-grid">
+                <div class="tool-category">
+                    <h3><i class="fas fa-users-cog"></i> User Management</h3>
+                    <div class="tool-buttons">
+                        <button class="tool-btn" data-tool="user-audit">
+                            <i class="fas fa-user-check"></i>
+                            User Permission Audit
+                        </button>
+                        <button class="tool-btn" data-tool="system-cleanup">
+                            <i class="fas fa-broom"></i>
+                            System Cleanup
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="troubleshooting" class="content-section">
+            <div class="section-header">
+                <h2><i class="fas fa-wrench"></i> Troubleshooting Center</h2>
+                <p>Diagnose and resolve issues quickly and efficiently</p>
+            </div>
+            <div class="tools-grid">
+                <div class="tool-category">
+                    <h3><i class="fas fa-stethoscope"></i> Diagnostics</h3>
+                    <div class="tool-buttons">
+                        <button class="tool-btn" data-tool="health-check">
+                            <i class="fas fa-heart"></i>
+                            System Health Check
+                        </button>
+                        <button class="tool-btn" data-tool="error-logs">
+                            <i class="fas fa-bug"></i>
+                            Error Log Viewer
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal for tool execution -->
+    <div id="tool-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">Tool Execution</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="modal-content"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
