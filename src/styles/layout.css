@@ -1,0 +1,15 @@
+:root {
+  --sidebar-width: 280px;
+}
+
+.app-grid {
+  display: grid;
+  grid-template-areas: "header header" "sidebar main";
+  grid-template-columns: var(--sidebar-width) 1fr;
+  grid-template-rows: auto 1fr;
+  min-height: 100vh;
+}
+
+.layout-header { grid-area: header }
+.layout-sidebar { grid-area: sidebar }
+.layout-main { grid-area: main }

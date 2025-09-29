@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand-navy: #122B38;
+  --brand-green: #0B9444;
+  --brand-light-gray: #EEF0F1;
+  --brand-salmon: #F28166;
+  --brand-orange: #FF5004;
+}
+
+body {
+  font-family: FKGroteskNeue, Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background-color: var(--brand-light-gray);
+}
+
+.layout-header { grid-area: header }
+.layout-sidebar { grid-area: sidebar }
+.layout-main { grid-area: main }
+
+@import './layout.css';
+
+/* Card and focus tokens */
+:root {
+  --card-border: rgba(94,82,64,0.12);
+  --focus-ring: 0 0 0 3px rgba(11,148,68,0.15);
+}
+
+.card { background: white; border: 1px solid var(--card-border); border-radius: 0.5rem }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0 }
+
