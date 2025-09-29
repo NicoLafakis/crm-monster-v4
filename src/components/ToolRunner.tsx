@@ -8,10 +8,10 @@ export default function ToolRunner({ name, onComplete }: { name: string; onCompl
   })
 
   return (
-    <div>
-      <h3 className="font-semibold mb-2">{name}</h3>
-      <ProgressBar value={progress} />
-      <div className="mt-2 text-sm text-gray-500">{Math.round(progress)}% complete</div>
+    <div className="tool-runner">
+      <h3 className="tool-runner__title font-semibold mb-2">{name}</h3>
+      <div className="tool-runner__progress"><ProgressBar value={progress} /></div>
+      <div className="tool-runner__status mt-2 text-sm text-gray-500">{Math.round(progress)}% complete</div>
     </div>
   )
 }

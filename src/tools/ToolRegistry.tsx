@@ -10,30 +10,30 @@ export type ToolConfig = {
 
 export function BulkImportTool({ onComplete }: { onComplete: (r?: any) => void }) {
   return (
-    <div>
-      <h3 className="font-semibold">Bulk Contact Import</h3>
-      <p className="text-sm text-gray-500 mb-3">Upload a CSV or map fields to create contacts in bulk.</p>
-      <ToolRunner name="Bulk Contact Import" onComplete={onComplete} />
+    <div className="tool-bulk-import">
+      <h3 className="tool-bulk-import__title font-semibold">Bulk Contact Import</h3>
+      <p className="tool-bulk-import__desc text-sm text-gray-500 mb-3">Upload a CSV or map fields to create contacts in bulk.</p>
+      <div className="tool-bulk-import__runner"><ToolRunner name="Bulk Contact Import" onComplete={onComplete} /></div>
     </div>
   )
 }
 
 export function DedupeTool({ onComplete }: { onComplete: (r?: any) => void }) {
   return (
-    <div>
-      <h3 className="font-semibold">Duplicate Detection</h3>
-      <p className="text-sm text-gray-500 mb-3">Scan contacts to find potential duplicates using fuzzy matching.</p>
-      <ToolRunner name="Duplicate Detection" onComplete={onComplete} />
+    <div className="tool-dedupe">
+      <h3 className="tool-dedupe__title font-semibold">Duplicate Detection</h3>
+      <p className="tool-dedupe__desc text-sm text-gray-500 mb-3">Scan contacts to find potential duplicates using fuzzy matching.</p>
+      <div className="tool-dedupe__runner"><ToolRunner name="Duplicate Detection" onComplete={onComplete} /></div>
     </div>
   )
 }
 
 export function AutomationTool({ onComplete }: { onComplete: (r?: any) => void }) {
   return (
-    <div>
-      <h3 className="font-semibold">Automation Builder</h3>
-      <p className="text-sm text-gray-500 mb-3">Validate and deploy workflow automations safely.</p>
-      <ToolRunner name="Automation Builder" onComplete={onComplete} />
+    <div className="tool-automation">
+      <h3 className="tool-automation__title font-semibold">Automation Builder</h3>
+      <p className="tool-automation__desc text-sm text-gray-500 mb-3">Validate and deploy workflow automations safely.</p>
+      <div className="tool-automation__runner"><ToolRunner name="Automation Builder" onComplete={onComplete} /></div>
     </div>
   )
 }

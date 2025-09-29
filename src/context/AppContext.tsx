@@ -110,14 +110,17 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       {children}
       {/* Modal rendering point can be lifted to a dedicated provider or portal */}
       {modalOpen && (
-        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
-          <div className="bg-white p-4 rounded-lg max-w-xl w-full">{modalContent}</div>
+        <div className="app-modal fixed inset-0 bg-black/40 flex items-center justify-center z-50">
+          <div className="app-modal__content bg-white p-4 rounded-lg max-w-xl w-full">{modalContent}</div>
         </div>
       )}
       {/* Notifications */}
-      <div className="fixed top-4 right-4 space-y-2 z-50">
+      <div className="app-notifications fixed top-4 right-4 space-y-2 z-50">
         {notifications.map((n: Notification) => (
-          <div key={n.id} className={`p-3 rounded shadow ${n.type === 'error' ? 'bg-red-100' : 'bg-white'}`}>
+          <div
+            key={n.id}
+            className={`notification-item notification-item--${n.type || 'info'} p-3 rounded shadow ${n.type === 'error' ? 'bg-red-100' : 'bg-white'}`}
+          >
             {n.message}
           </div>
         ))}
