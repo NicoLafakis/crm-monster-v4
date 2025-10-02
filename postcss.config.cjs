@@ -1,6 +1,9 @@
+const stripEmpty = require('./postcss-plugins/strip-empty-custom-props');
+
 module.exports = {
-  plugins: {
-    tailwindcss: {},
-    autoprefixer: {}
-  }
+  plugins: [
+    require('tailwindcss'),
+    require('autoprefixer'),
+    stripEmpty
+  ]
 }
